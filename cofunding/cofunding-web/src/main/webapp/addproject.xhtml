@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><ui:insert name="pageTitle" /></title>
+	<h:outputStylesheet library="css" name="application.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputText value="NAME :" />
+			<h:inputText value="#{projetBean.projet.name}" />
+			
+			<h:outputText value="Description:" />
+			<h:inputTextarea value="#{projetBean.projet.description}" />
+			
+			
+			<h:outputText value="Image:" />
+			<h:inputTextarea value="#{projetBean.projet.image}" />
+			
+						
+			<p:outputLabel for="button" value="Button:" />
+     	   <p:calendar id="button" value="#{projetBean.projet.dateDeCreation}" showOn="button" />
+			
+					<!-- <h:outputText value="Description:" />
+			<h:inputTextarea value="#{projetBean.projet.fichier}" /> -->
+			
+						<h:outputText value= "Montant à collecter:" />
+			<h:inputTextarea value="#{projetBean.projet.montant_a_collecte}" />
+			
+					<!--	<h:outputText value="Categorie:" />
+			<h:selectManyListbox value="#{projetBean.projet.categorie}" />
+			-->
+						<h:outputText value="Montant Collecté:" />
+			<h:inputTextarea value="#{projetBean.projet.sommeCollecte}" />
+			
+			
+			
+			
+			<h:commandButton action="#{projetBean.doAddProjet()}"
+				value="add" />
+				</h:panelGrid>
+				</h:form>
+				
+	
+</h:body>
+</html>

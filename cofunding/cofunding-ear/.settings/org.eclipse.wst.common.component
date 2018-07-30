@@ -17,5 +17,8 @@
         <dependent-module archiveName="cofunding-domain.jar" deploy-path="/lib" handle="module:/resource/cofunding-domain/cofunding-domain">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="commons-io.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-io/commons-io/2.1/commons-io-2.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>

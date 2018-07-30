@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:p="http://primefaces.org/ui"  
+      xmlns:f="http://java.sun.com/jsf/core"
+       >  
+ <h:head>  
+      <title>dataTable page</title>  
+      <h:outputStylesheet name="style/mystyle.css" />  
+ </h:head>  
+ <h:body>
+        <h:form id="uploadForm" enctype="multipart/form-data">
+            <h:panelGrid columns="2">
+                username :<h:inputText value="#{projetBean.projet.name}"/>
+                Status :<h:inputText value="#{projetBean.projet.categorie}"/>
+               
+                
+               
+               <h:inputFile id="file" value="#{projetBean.uploadedFile}"/>
+              
+
+                    <h:commandButton value="Create" action="#{projetBean.addproj}"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+ </html>  

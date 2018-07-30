@@ -8,5 +8,5 @@ import funding.cofunding.utilities.IGenericDAO;
 @Local
 public interface ProjectServicesLocal extends IGenericDAO<Projet>{
 	
-
+	 public byte[] loadImage(int id);
 }

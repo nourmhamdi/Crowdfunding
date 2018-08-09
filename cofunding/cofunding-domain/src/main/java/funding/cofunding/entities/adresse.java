@@ -1,9 +1,10 @@
 package funding.cofunding.entities;
 
+import javax.persistence.Embeddable;
 
-
+@Embeddable
 public class adresse {
-			private String adresse ;
+			private String adress ;
 		
 		private String country ;
 	
@@ -12,11 +13,11 @@ public class adresse {
 	public adresse() {
 		// TODO Auto-generated constructor stub
 	}
-	public String getAdresse() {
-		return adresse;
+	public String getAdress() {
+		return adress;
 	}
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
+	public void setAdress(String adress) {
+		this.adress = adress;
 	}
 	public String getCountry() {
 		return country;
@@ -30,9 +31,9 @@ public class adresse {
 	public void setZIPcode(String zIPcode) {
 		ZIPcode = zIPcode;
 	}
-	public adresse(String adresse, String country, String zIPcode) {
+	public adresse(String adress, String country, String zIPcode) {
 		super();
-		this.adresse = adresse;
+		this.adress = adress;
 		this.country = country;
 		ZIPcode = zIPcode;
 	}

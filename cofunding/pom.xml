@@ -153,6 +153,11 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql.driver.version}</version>
 			</dependency>
+			 <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>javax.mail</artifactId>
+                <version>1.6.1</version>
+            </dependency>
 
 			<!-- JBoss distributes a complete set of Java EE 7 APIs including a Bill 
 				of Materials (BOM). A BOM specifies the versions of a "stack" (or a collection) 

@@ -3,7 +3,6 @@ package funding.cofunding.entities;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity 
 @Table(name="User")
@@ -19,23 +19,36 @@ public class User  {
 	@PrimaryKeyJoinColumn
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private  int idUser;
+	@NotNull(message="please enter your name!")
 	@Column(name="name")
 	private String name;
+	@NotNull(message="please enter your last name ")
 	@Column(name="Lastname")
 	private String Lastname;
 	@Column(name="mail")
 	private String mail;
+	@NotNull(message="please enter your login")
+	@Column(name="login")
+	private String login;
+	@NotNull(message="please enter your password")
+	@Column(name="password")
+	private String password;
 	@Column(name="adresse")
-	@Embedded //composant 
-	private adresse adresse;
+	private String adresse;
+	@Column(name="ZipCode")
+	private String ZipCode;
+	@Column(name="Country")
+	private String Country;
+	
 	@OneToMany(mappedBy="user")
 	private List<Projet> projets;
 	
 
+
 	public User(String name, String lastname, String mail) {
 		super();
 		this.name = name;
-		Lastname = lastname;
+		this.Lastname = lastname;
 		this.mail = mail;
 	}
 	
@@ -86,13 +99,62 @@ public class User  {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public adresse getAdresse() {
+
+	public String getLogin() {
+		return login;
+	}
+
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	
+	public String getAdresse() {
 		return adresse;
 	}
 
-	public void setAdresse(adresse adresse) {
-	this.adresse = adresse;
-	}
-	
 
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+
+	public String getZipCode() {
+		return ZipCode;
+	}
+
+
+	public void setZipCode(String zipCode) {
+		ZipCode = zipCode;
+	}
+
+
+	public String getCountry() {
+		return Country;
+	}
+
+
+	public void setCountry(String country) {
+		Country = country;
+	}
+
+
+	@Override
+	public String toString() {
+		return "User [idUser=" + idUser + ", name=" + name + ", Lastname=" + Lastname + ", mail=" + mail + ", login="
+				+ login + ", password=" + password + ", adresse=" + adresse+ ", projets=" + projets + "]";
+	}
+
+	
 }

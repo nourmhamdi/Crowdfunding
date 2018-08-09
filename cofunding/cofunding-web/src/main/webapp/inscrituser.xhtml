@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title><ui:insert name="inscription" /></title>
+	<h:outputStylesheet library="css" name="application.css" />
+	
+		</h:head>
+	<h:body>
+<h:form xmlns:h="http://java.sun.com/jsf/html">
+	<h:form>
+	<h:messages errorStyle="color:red;"/>
+			<h:panelGrid columns="2">
+		<h:outputText value="Name" />
+			<p:inputText  id="name" value="#{userBean.user.name}" required="true"  requiredMessage="please enter your first name "/>
+			<h:outputText value="Last Name:" />
+			<p:inputText value="#{userBean.user.lastname}"  required="true" requiredMessage="please enter your last name "/>
+			<h:outputText value="Email:" />
+			<p:inputText id="email" required="true" label="email" size="40"
+			requiredMessage="Please enter your email address."
+			validatorMessage="Invalid email format"
+			value="#{userBean.user.mail}">
+	  	<f:validateRegex
+		pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+	</p:inputText>
+	<p:watermark for="email" value="Email Address *" />
+				<h:outputText value="adresse:" />
+			 <p:inputText value="#{userBean.user.adresse}" />
+			 <h:outputText value="Zip Code" />
+			<p:inputText value="#{userBean.user.zipCode}" />
+			<h:outputText value="Country" />
+			<p:inputText value="#{userBean.user.country}" />
+			<h:outputText value="Login" />
+			<p:inputText value="#{userBean.user.login}"  required="true" requiredMessage="please enter your login "/>
+<!-- 			<h:outputText value="password:" /> -->
+<!-- 			<h:inputSecret id ="password" value="#{userBean.user.password}"/>	 -->
+<!-- 				<h:outputText value="password:" /> <br/> -->
+<!--      			 <p:password id="password" value="#{userBean.user.password}" match="repeated_password"  required="true" requiredMessage="Please enter your password"/> -->
+<!-- 				<h:outputText value="Confirm password:" /> <br/> -->
+<!-- 				<p:password id="repeated_password" value="#{userBean.user.password}" required="true"  requiredMessage="Please enter your confirm password"/> -->
+			
+			
+			<h:outputLabel for="password" value="Password:" />
+		<h:inputSecret id="password" value="#{userBean.user.password}" required="true"  requiredMessage="Please enter your password">
+  	 	 <f:validator validatorId="confirmPasswordValidator" />
+    	<f:attribute name="confirm" value="#{confirmPassword}" />
+		</h:inputSecret>
+		<h:outputLabel for="confirm" value="Password (again):" />
+			<h:inputSecret id="confirm" binding="#{confirmPassword}" required="true" requiredMessage="please enter your password again ">
+		</h:inputSecret>
+			<h:commandButton action="#{userBean.doAddUser()}" value="s'inscrire" />
+			<input type="button" onclick="window.location.href='home.xhtml'; return false;" value="annuler" />
+	</h:panelGrid>
+
+	</h:form>
+</h:form>
+</h:body>
+</html>

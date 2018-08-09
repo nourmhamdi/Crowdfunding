@@ -1,5 +1,6 @@
 package funding.cofunding.entities;
 import java.io.File;
+import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 @Entity 
@@ -30,6 +32,9 @@ public class Projet {
 	private String Categorie ;
 	@Column(name="sommeCollecte")
 	private Double sommeCollecte ;
+	@Column(name="picture")
+	 @Lob
+	private byte[] picture ;
 	@Column(name="DateDeCreation ")
 	private Date DateDeCreation  ;
 	@ManyToOne
@@ -142,5 +147,16 @@ public class Projet {
 	public void setMontant_a_collecte(Double montant_a_collecte) {
 		this.montant_a_collecte = montant_a_collecte;
 	}
+
+
+	public byte[] getPicture() {
+		return picture;
+	}
+
+
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
+	}
+	
 
 }

@@ -70,7 +70,11 @@
 				<artifactId>cofunding-domain</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
-
+<dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.1</version>
+    </dependency>
 			<dependency>
 				<groupId>funding</groupId>
 				<artifactId>cofunding-service</artifactId>
@@ -333,4 +337,11 @@
     <module>cofunding-domain</module>
     <module>cofunding-service</module>
   </modules>
+  <dependencies>
+  	<dependency>
+  		<groupId>commons-io</groupId>
+  		<artifactId>commons-io</artifactId>
+  		<version>2.1</version>
+  	</dependency>
+  </dependencies>
 </project>

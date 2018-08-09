@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Built-By: Ghada
 Class-Path: lib/javax.mail-1.6.1.jar lib/activation-1.1.1.jar lib/prim
- efaces-5.1.jar
+ efaces-5.1.jar lib/commons-io-2.1.jar
 Build-Jdk: 1.8.0_101
 Created-By: Maven Integration for Eclipse
 

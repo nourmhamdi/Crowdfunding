@@ -5,43 +5,25 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title><ui:insert name="pageTitle" /></title>
+	<title><ui:insert name="upload" /></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
 	<h:outputStylesheet library="css" name="application.css" />
 </h:head>
 <h:body>
-	<h:form>
+  <h:form id="uploadForm" enctype="multipart/form-data">  
 		<h:panelGrid columns="2">
 			<h:outputText value="NAME :" />
 			<h:inputText value="#{projetBean.projet.name}" />
 			
-			<h:outputText value="Description:" />
-			<h:inputTextarea value="#{projetBean.projet.description}" />
+			<h:outputText value="image"></h:outputText>
 			
-			
-			<h:outputText value="Image:" />
-			<h:inputTextarea value="#{projetBean.projet.image}" />
-			
-						
-			<p:outputLabel for="button" value="Button:" />
-     	   <p:calendar id="button" value="#{projetBean.projet.dateDeCreation}" showOn="button" />
-			
-					<!-- <h:outputText value="Description:" />
-			<h:inputTextarea value="#{projetBean.projet.fichier}" /> -->
-			
-						<h:outputText value= "Montant à collecter:" />
-			<h:inputTextarea value="#{projetBean.projet.montant_a_collecte}" />
-			
-					<!--	<h:outputText value="Categorie:" />
-			<h:selectManyListbox value="#{projetBean.projet.categorie}" />
-			-->
-						<h:outputText value="Montant Collecté:" />
-			<h:inputTextarea value="#{projetBean.projet.sommeCollecte}" />
-			
-			
-			
-			
-			<h:commandButton action="#{projetBean.doAddProjet()}"
-				value="add" />
+ 
+        <p:fileUpload id="file" value="#{projetBean.file}" required="true"  
+                     mode="simple"   
+                     styleClass="imagesOnlyMax10MB" />  
+                <p:spacer width="10px" />  
+                <p:commandButton value="Submit" ajax="false" id="upload"  
+                     action="#{projetBean.doadd()}" />>
 				</h:panelGrid>
 				</h:form>
 				

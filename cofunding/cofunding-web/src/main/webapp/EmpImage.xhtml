@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:p="http://primefaces.org/ui"  
+      xmlns:f="http://java.sun.com/jsf/core">  
+ <f:event listener="#{imagesWeb.loadImageForEmployee}"  
+      type="preRenderView" />  
+ <h:head>  
+ </h:head>  
+ <h:body>  
+      <p:growl life="5000" autoUpdate="true" />  
+      <p:panel style="width:100%;border:0 ;text-align:center"  
+           header="Employee Image">  
+      </p:panel>  
+      <h:form id="uploadForm" enctype="multipart/form-data">  
+           <h:panelGroup columns="1"  
+                rendered="#{imagesWeb.selectedEmployee.image==null}">  
+                <p:outputLabel for="file"  
+                     value="Select Image for #{imagesWeb.selectedEmployee.lastName}" />  
+                <p:fileUpload id="file" value="#{imagesWeb.file}" required="true"  
+                     mode="simple"  
+                     styleClass="imagesOnlyMax10MB" />  
+                <p:spacer width="10px" />  
+                <p:commandButton value="Submit" ajax="false" id="upload"  
+                     action="#{imagesWeb.add}" />  
+                <p:spacer width="50px" />  
+                <p:separator />  
+           </h:panelGroup>  
+           <p:panelGrid columns="2" styleClass="panelGridnoborder">  
+                <h:outputText value="Name" />  
+                <h:outputText  
+                     value="#{imagesWeb.selectedEmployee.firstName} #{imagesWeb.selectedEmployee.lastName}"  
+                     title="Name" />  
+                <h:outputText value="Photo" />  
+                <p:graphicImage name="img/no_image.jpg"  
+                     rendered="#{imagesWeb.selectedEmployee.image==null}" />  
+                <p:graphicImage  
+                     value="/ImageServlet?ImageId=#{imagesWeb.selectedEmployee.image.imageId}"  
+                     rendered="#{imagesWeb.selectedEmployee.image!=null}" />  
+           </p:panelGrid>  
+           <h:button outcome="Employees" value="Employees Table" />  
+      </h:form>  
+      <h:outputStylesheet name="style/mystyle.css" />  
+      <h:outputScript library="javascript" name="jscode.js" />  
+ </h:body>  
+ </html>  

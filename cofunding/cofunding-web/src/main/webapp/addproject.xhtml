@@ -1,32 +1,15 @@
-<!DOCTYPE html>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<title><ui:insert name="upload" /></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
-	<h:outputStylesheet library="css" name="application.css" />
-</h:head>
-<h:body>
-  <h:form id="uploadForm" enctype="multipart/form-data">  
-		<h:panelGrid columns="2">
-			<h:outputText value="NAME :" />
-			<h:inputText value="#{projetBean.projet.name}" />
-			
-			<h:outputText value="image"></h:outputText>
-			
- 
-        <p:fileUpload id="file" value="#{projetBean.file}" required="true"  
-                     mode="simple"   
-                     styleClass="imagesOnlyMax10MB" />  
-                <p:spacer width="10px" />  
-                <p:commandButton value="Submit" ajax="false" id="upload"  
-                     action="#{projetBean.doadd()}" />>
-				</h:panelGrid>
-				</h:form>
-				
-	
-</h:body>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="./resources/css/default.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+      <h:form>
+        </h:form>
+    </h:body>
 </html>

@@ -1,20 +1,114 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="/template/template.xhtml">
+<?xml version='1.0' encoding='UTF-8' ?>
 
-	<ui:define name="pageTitle">
-				HOME PAGE
-			</ui:define>
-	<ui:define name="pageContent">
+<!DOCTYPE html   
 
-		<div class="centredZone">
-			<br />
-			<h2>HOME</h2>
-			<br /> <br />
+ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+  <ui:composition template="/WEB-INF/include/template.xhtml">
+    <ui:define name="head">
+        <title>Hello JSF Bootstrap</title>
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" type="text/css"  href="resources/css/style.css"/>
+    </ui:define>
+    <ui:define name="body">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         
+				<ui:include  class="navbar-brand" src="/template/logo.xhtml" height="80px" />
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+        <li><a href="#">My ACCOUNT</a></li>
+        <li><a href="#">Consult My Projects</a></li>
+      </ul>
+          <ul class="nav navbar-nav navbar-right">
+      <li><a href="employees.jsf"><span class="glyphicon glyphicon-thumbs-up"></span> Create Project</a></li>
+      <li ><h:form rendered="#{identity.isLogged}">
+	   <span> You are logged in as #{identity.user.name} |&nbsp;&nbsp;&nbsp;
+	    <h:commandLink action="#{identity.logout}" class="glyphicon glyphicon-log-out" value="  Logout" /></span>
+	</h:form></li>
+    </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <br />
+    <br />
+    <br/>
+    <br />
+    <br />
+    <br/>
+    <h1>Projects List</h1>
+    <h:dataTable value="#{ProjetBean.listlistAllProjects()}" var="proj" border="0">
+    <h:column>
+    <f:facet name="header">Title</f:facet>
+    #{proj.getName()}
+    </h:column>
+     <h:column>
+    <f:facet name="header">category</f:facet>
+    #{proj.categorie}
+    </h:column>
+     <h:column>
+    <f:facet name="header">Description</f:facet>
+    #{proj.description}
+    </h:column>
+     <h:column>
+    <f:facet name="header">Creation Date</f:facet>
+    #{proj.DateDeCreation}
+    </h:column>
+     <h:column>
+    <f:facet name="header">Amount to Collect</f:facet>
+    #{proj.DateDeCreation}
+    </h:column>
+     <h:column>
+    <f:facet name="header">Amount Collected </f:facet>
+    #{proj.DateDeCreation}
+    </h:column>
+    
+    <h:column>
+    <f:facet name="header">Logo </f:facet>
+    #{proj.DateDeCreation}
+    </h:column>
+    
+    </h:dataTable>
+    <section>
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <div class="p-5">
+              <img class="img-fluid rounded-circle" src="" alt=""></img>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-4">Let there be rock!</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-		</div>
 
+
+
+
+
+
+		
+		
+		 <script src="Login_v2/vendor/jquery/jquery.min.js"></script>
+    <script src="resources/startbootstrap-sb-admin-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		
 	</ui:define>
 </ui:composition>
+</html>

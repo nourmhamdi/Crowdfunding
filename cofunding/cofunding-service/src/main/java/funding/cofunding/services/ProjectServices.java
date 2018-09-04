@@ -1,6 +1,7 @@
 package funding.cofunding.services;
 
-import javax.ejb.LocalBean;
+import java.sql.Blob;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 
@@ -19,7 +20,11 @@ public class ProjectServices extends GenericDAO<Projet> implements ProjectServic
         super(Projet.class);
     }
       public byte[] loadImage(int id){
-          return em.find(Projet.class, id).getPicture();
-      }
+          return em.find(Projet.class, id).getPicture();      
 
+
+      }
+      public byte[] loadFile(int id) {
+    	  return em.find(Projet.class, id).getFichier();
+      }
 }

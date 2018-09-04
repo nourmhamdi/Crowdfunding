@@ -8,7 +8,9 @@
 	    <h:commandLink action="#{identity.logout}" value="Logout" />
 	</h:form>
 	<h:form rendered="#{!identity.isLogged}">
-
+	    <h:commandLink action="index" value="consult Projects" /> 
+		<h:commandLink action="employees" value="Create Project" /> 
+		<h:commandLink action="inscrituser" value="inscription" /> 
 		<h:commandLink action="login" value="LOGIN" /> |
 		
 	</h:form>

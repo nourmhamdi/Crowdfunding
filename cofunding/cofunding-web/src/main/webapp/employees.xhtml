@@ -1,3 +1,5 @@
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  
       xmlns:ui="http://java.sun.com/jsf/facelets"  
       xmlns:h="http://java.sun.com/jsf/html"  
@@ -5,22 +7,75 @@
       xmlns:f="http://java.sun.com/jsf/core"
        >  
  <h:head>  
-      <title>dataTable page</title>  
-      <h:outputStylesheet name="style/mystyle.css" />  
- </h:head>  
- <h:body>
-        <h:form id="uploadForm" enctype="multipart/form-data">
-            <h:panelGrid columns="2">
-                username :<h:inputText value="#{projetBean.projet.name}"/>
-                Status :<h:inputText value="#{projetBean.projet.categorie}"/>
-               
-                
-               
-               <h:inputFile id="file" value="#{projetBean.uploadedFile}"/>
-              
+      <title>create project Page</title>  
+      <h:outputStylesheet name="style/mystyle.css" />
+      <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
+      <link href="resources/startbootstrap-sb-admin-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
-                    <h:commandButton value="Create" action="#{projetBean.addproj}"/>
-            </h:panelGrid>
+ 
+    <link href="resources/startbootstrap-sb-admin-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+
+    
+    <link href="resources/startbootstrap-sb-admin-gh-pages/css/sb-admin.css" rel="stylesheet"/>  
+ </h:head>  
+ <h:body class="bg-dark">
+ <div class="container">
+      <div class="card card-register mx-auto mt-5">
+        <div class="card-header">CREATE A PROJECT</div>
+        <div class="card-body">
+        <h:form id="uploadForm" enctype="multipart/form-data">
+            <h:panelGrid columns="1">
+           
+         <h:outputLabel value="Project Title " />
+               <h:inputText value="#{projetBean.projet.name}"/>
+               <h:outputLabel value="Category" />
+              <p:selectOneMenu id="Categorie" value="#{projetBean.projet.categorie}" effect="fold" editable="true">
+           		 <f:selectItem itemLabel="Category" itemValue="" />
+        		    
+          			  <f:selectItem itemLabel="professional" itemValue="1" />
+           			  <f:selectItem itemLabel="assocaitive" itemValue="2" />
+                     
+        </p:selectOneMenu>
+               
+               <h:outputLabel value="Description " />
+			<h:inputTextarea value="#{projetBean.projet.description}" />
+	
+		
+		    <p:outputLabel for="DateCreation" value="Creation Date" /> 
+     	    <p:calendar id="DateCreation" value="#{projetBean.projet.dateDeCreation}" showOn="button" />
+
+
+
+			<h:outputLabel value="Amount to Collect" />
+	
+			   <div class="ui-inputgroup">
+         
+            <p:inputText  value="#{projetBean.projet.montant_a_collecte}" />
+        </div>
+        
+        	<h:outputLabel  type="number" value="Amount Collected" />
+	
+			   <div class="ui-inputgroup">
+           
+            <p:inputText   type="number"  value="#{projetBean.projet.sommeCollecte}"  />
+        </div>
+   
+<h:outputLabel value="Upload logo" />
+               <h:inputFile id="file" value="#{projetBean.uploadedFile}"/>
+<!--               <h:outputText value="upload Project specifications:" /> -->
+<!--                <h:inputFile id="file2" value="#{projetBean.file}"/><br /> -->
+ 
+               <h:commandButton class="btn btn-primary btn-block" value="Create" action="#{projetBean.addproj}"/>
+               <input class="btn btn-primary btn-block" type="button" onclick="window.location.href='helloBootstrap.jsf'; return false;" value="annuler" />
+         
+          </h:panelGrid>
         </h:form>
-    </h:body>
+        </div>
+        </div>
+        </div>
+          </h:body>
  </html>  

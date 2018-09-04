@@ -1,0 +1,16 @@
+body {
+    padding-top: 50px;
+}
+
+.starter-template {
+    padding: 40px 15px !important;
+    text-align: center !important;
+}
+.image{
+	width: 60% !important;
+	height: 70px !important;
+	float: left !important;
+}
+.navbar-inverse{
+	
+}

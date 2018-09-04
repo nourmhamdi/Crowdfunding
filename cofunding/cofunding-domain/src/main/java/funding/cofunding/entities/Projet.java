@@ -22,10 +22,8 @@ public class Projet {
 	private	String name;
 	@Column(name="description")
 	private	String description ;
-	@Column(name="image")
-	private String image ;
 	@Column(name="fichier")
-	private File fichier ;
+	private byte[] fichier ;
 	@Column(name="montant_a_collecte")
 	private Double montant_a_collecte;
 	@Column(name="Categorie")
@@ -51,12 +49,11 @@ public class Projet {
 	}
 
 
-	public Projet(String name, String description, String image, File fichier, Double montant_a_collecte,
+	public Projet(String name, String description,byte[] fichier, Double montant_a_collecte,
 			String categorie, Double sommeCollecte, Date dateDeCreation) {
 		super();
 		this.name = name;
 		this.description = description;
-		this.image = image;
 		this.fichier = fichier;
 		this.montant_a_collecte = montant_a_collecte;
 		Categorie = categorie;
@@ -95,12 +92,12 @@ public class Projet {
 	}
 
 
-	public File getFichier() {
+	public byte[] getFichier() {
 		return fichier;
 	}
 
 
-	public void setFichier(File fichier) {
+	public void setFichier( byte[] fichier) {
 		this.fichier = fichier;
 	}
 
@@ -130,15 +127,7 @@ public class Projet {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getImage() {
-		return image;
-	}
-
-
 	
-	public void setImage(String image) {
-		this.image = image;
-	}
 
 	public Double getMontant_a_collecte() {
 		return montant_a_collecte;
